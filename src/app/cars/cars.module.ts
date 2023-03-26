@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { CarsRoutingModule } from './cars-routing.module';
-import { ParkingComponent } from './parking/parking.component';
 import { FleetComponent } from './fleet/fleet.component';
-
+import { ParkingComponent } from './parking/parking.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,8 @@ import { FleetComponent } from './fleet/fleet.component';
   ],
   imports: [
     CommonModule,
-    CarsRoutingModule
+    CarsRoutingModule,
+    MatGridListModule
   ]
 })
 export class CarsModule { }
