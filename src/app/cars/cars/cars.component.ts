@@ -10,7 +10,8 @@ import { Observable } from 'rxjs';
 })
 export class CarsComponent {
 
-  cars: Observable<Car[]>;
+  cars$: Observable<Car[]>;
+
   displayedColumns = ['name', 'category', 'color', 'km_out', 'km_in'];
 
   // carsService: CarsService;
@@ -18,7 +19,7 @@ export class CarsComponent {
   constructor( private carsService: CarsService ){
     //this.cars = [];
     //this.carsService = new CarsService();
-    this.cars = this.carsService.list();
+    this.cars$ = this.carsService.list();
   }
 
 }
