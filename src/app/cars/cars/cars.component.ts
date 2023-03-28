@@ -1,3 +1,4 @@
+import { CarsService } from './../services/cars.service';
 import { Component } from '@angular/core';
 import { Car } from '../model/car';
 
@@ -8,14 +9,15 @@ import { Car } from '../model/car';
 })
 export class CarsComponent {
 
-  cars: Car[] = [
-    {_id:1, name: 'Gol', category: 'Volkswagen', color:'Preto', km_out:80124, km_in:89241},
-    {_id:2, name: 'Corsa', category: 'Chevrolet',color:'Branco', km_out:70124 , km_in:74231 }
-  ];
+  cars: Car[] = [];
   displayedColumns = ['name', 'category', 'color', 'km_out', 'km_in'];
 
-  constructor(){
+  // carsService: CarsService;
+
+  constructor( private carsService: CarsService ){
     //this.cars = [];
+    //this.carsService = new CarsService();
+    this.cars = this.carsService.list();
   }
 
 }
