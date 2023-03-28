@@ -5,6 +5,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
+import { SharedModule } from '../shared/shared.module';
 import { CarsRoutingModule } from './cars-routing.module';
 import { CarsComponent } from './cars/cars.component';
 
@@ -18,7 +19,8 @@ import { CarsComponent } from './cars/cars.component';
     MatTableModule,
     MatCardModule,
     MatToolbarModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    SharedModule
   ]
 })
 export class CarsModule { }
