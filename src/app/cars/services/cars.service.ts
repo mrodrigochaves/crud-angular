@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Car} from '../model/car';
+import { first, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CarsService {
 
-  constructor(private hhtpClient: HttpClient) { }
+  private readonly API = '/assets/cars.json';
 
-  list(): Car[] {
-    return[
-      {_id:1, name: 'Gol', category: 'Volkswagen', color:'Preto', km_out:80124, km_in:89241},
-      {_id:2, name: 'Corsa', category: 'Chevrolet',color:'Branco', km_out:70124 , km_in:74231 }
-    ]
+  constructor(private httpClient: HttpClient) { }
+
+  list(){
+    return this.httpClient.get<Car[]>(this.API)
+    .pipe(
+      first(),
+      tap( cars => console.log(cars))
+    );
   }
 }

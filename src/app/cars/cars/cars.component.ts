@@ -1,6 +1,7 @@
 import { CarsService } from './../services/cars.service';
 import { Component } from '@angular/core';
 import { Car } from '../model/car';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-cars',
@@ -9,7 +10,7 @@ import { Car } from '../model/car';
 })
 export class CarsComponent {
 
-  cars: Car[] = [];
+  cars: Observable<Car[]>;
   displayedColumns = ['name', 'category', 'color', 'km_out', 'km_in'];
 
   // carsService: CarsService;
