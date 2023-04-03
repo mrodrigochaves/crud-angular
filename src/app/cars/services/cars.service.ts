@@ -9,7 +9,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
   providedIn: 'root',
 })
 export class CarsService {
-  private readonly API = 'http://localhost:8080/api/cars';
+  private readonly API = '/api/cars';
   dialog: any;
 
   constructor(private httpClient: HttpClient) {}

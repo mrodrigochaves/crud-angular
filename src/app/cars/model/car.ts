@@ -4,7 +4,7 @@ export interface Car {
   name:string,
   category:string
   color:string,
-  km_out: number,
-  km_in: number
+  kmOut: number,
+  kmIn: number
 
 }

@@ -11,7 +11,7 @@
 
         <!-- No. Column -->
         <ng-container matColumnDef="_id">
-          <th mat-header-cell *matHeaderCellDef> No. </th>
+          <th mat-header-cell *matHeaderCellDef> ID </th>
           <td mat-cell *matCellDef="let car"> {{car._id}} </td>
         </ng-container>
 
@@ -38,13 +38,13 @@
         <!-- Km Out Column -->
         <ng-container matColumnDef="km_out">
           <th mat-header-cell *matHeaderCellDef> KM na Saída </th>
-          <td mat-cell *matCellDef="let car"> {{car.km_out}} </td>
+          <td mat-cell *matCellDef="let car"> {{car.kmOut}} </td>
         </ng-container>
 
         <!-- Km In Column -->
         <ng-container matColumnDef="km_in">
           <th mat-header-cell *matHeaderCellDef> KM no Retorno </th>
-          <td mat-cell *matCellDef="let car"> {{car.km_in}} </td>
+          <td mat-cell *matCellDef="let car"> {{car.kmIn}} </td>
         </ng-container>
 
 
