@@ -10,10 +10,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { SharedModule } from '../shared/shared.module';
 import { CarsRoutingModule } from './cars-routing.module';
 import { CarsComponent } from './cars/cars.component';
+import { CarFormComponent } from './car-form/car-form.component';
 
 @NgModule({
   declarations: [
-    CarsComponent
+    CarsComponent,
+    CarFormComponent
   ],
   imports: [
     CommonModule,

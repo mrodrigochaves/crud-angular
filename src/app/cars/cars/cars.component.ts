@@ -6,6 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Car } from '../model/car';
 import { CarsService } from './../services/cars.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cars',
@@ -15,11 +16,12 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 export class CarsComponent {
   cars$: Observable<Car[]>;
 
-  displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in'];
+  displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in', 'actions'];
+
 
   // carsService: CarsService;
 
-  constructor(private carsService: CarsService, public dialog: MatDialog) {
+  constructor(private carsService: CarsService, public dialog: MatDialog, private router: Router) {
     //this.cars = [];
     //this.carsService = new CarsService();
     this.cars$ = this.carsService.list()
@@ -35,6 +37,10 @@ export class CarsComponent {
     this.dialog.open(ErrorDialogComponent, {
       data: erroMsg
     });
+  }
+
+  onAdd(){
+    this.router.navigate(['cars/new'])
   }
 
 }
