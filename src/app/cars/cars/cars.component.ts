@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { Car } from '../model/car';
 import { CarsService } from './../services/cars.service';
 import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cars',
@@ -21,12 +21,16 @@ export class CarsComponent {
 
   // carsService: CarsService;
 
-  constructor(private carsService: CarsService, public dialog: MatDialog, private router: Router) {
-    //this.cars = [];
-    //this.carsService = new CarsService();
+  constructor(private carsService: CarsService,
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
+
+    ) {
+
     this.cars$ = this.carsService.list()
     .pipe(
-      catchError(error => {
+      catchError(_error => {
         this.onError('Error loading cars!');
         return of([])
   })
@@ -39,8 +43,9 @@ export class CarsComponent {
     });
   }
 
+
   onAdd(){
-    this.router.navigate(['cars/new'])
+    this.router.navigate(['new'], {relativeTo: this.route});
   }
 
 }
