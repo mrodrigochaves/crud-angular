@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { CarsService } from '../services/cars.service';
 
 @Component({
   selector: 'app-car-form',
@@ -10,7 +11,8 @@ export class CarFormComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor( private formBuilder: FormBuilder){
+  constructor( private formBuilder: FormBuilder,
+    private service: CarsService){
     this.form = this.formBuilder.group({
       name: [null],
       category: [null],
@@ -22,5 +24,11 @@ export class CarFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  onSubmit(){
+    this.service.save(this.form.value);
+  }
+
+  onCancel(){}
 
 }
