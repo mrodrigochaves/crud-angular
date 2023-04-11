@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { Location } from '@angular/common';
 import { CarsService } from '../services/cars.service';
 
 @Component({
@@ -15,7 +15,8 @@ export class CarFormComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,
     private service: CarsService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private location: Location
     ){
     this.form = this.formBuilder.group({
       name: [null],
@@ -30,13 +31,20 @@ export class CarFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.service.save(this.form.value).subscribe(result => console.log(result), error => this.onError());
+    this.service.save(this.form.value).subscribe(result => this.onSucess(), error => this.onError());
   }
 
-  onCancel(){}
+  onCancel(){
+    this.location.back();
+  }
+
+  private onSucess(){
+    this.snackBar.open('Curso salvo com sucesso!', '', {duration: 4000});
+    this.onCancel();
+  }
 
   private onError(){
-    this.snackBar.open('Erro ao salvar carro!', '', {duration: 5000});
+    this.snackBar.open('Erro ao salvar carro!', '', {duration: 4000});
   }
 
 }
