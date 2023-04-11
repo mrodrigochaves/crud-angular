@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Car } from '../model/car';
-import { catchError, first } from 'rxjs/operators';
-import { of } from 'rxjs';
-import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+import { first, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -15,21 +13,15 @@ export class CarsService {
   constructor(private httpClient: HttpClient) {}
 
   list() {
-    return this.httpClient.get<Car[]>(this.API).pipe(
-      catchError((error) => {
-        this.onError('Erro ao carregar a lista!')
-        return of([]);
-      })
+    return this.httpClient.get<Car[]>(this.API).
+    pipe(
+      first(),
+      tap(cars => console.log(cars))
     );
   }
 
-  onError(errorMsg: string) {
-    this.dialog.open(ErrorDialogComponent, {
-      data: errorMsg,
-    });
-  }
 
   save(record: Car){
-    this.httpClient.post<Car>(this.API, record).pipe(first());
+  return  this.httpClient.post<Car>(this.API, record).pipe(first());
   }
 }

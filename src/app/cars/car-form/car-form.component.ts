@@ -26,7 +26,7 @@ export class CarFormComponent implements OnInit {
   }
 
   onSubmit(){
-    this.service.save(this.form.value);
+    this.service.save(this.form.value).subscribe(result => console.log(result));
   }
 
   onCancel(){}
