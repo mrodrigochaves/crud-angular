@@ -21,7 +21,7 @@ export class CarsService {
   }
 
 
-  save(record: Car){
+  save(record: Partial<Car>){
   return  this.httpClient.post<Car>(this.API, record).pipe(first());
   }
 }
