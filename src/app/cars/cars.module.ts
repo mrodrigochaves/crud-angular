@@ -16,11 +16,13 @@ import { SharedModule } from '../shared/shared.module';
 import { CarFormComponent } from './car-form/car-form.component';
 import { CarsRoutingModule } from './cars-routing.module';
 import { CarsComponent } from './cars/cars.component';
+import { CarsListComponent } from './cars-list/cars-list.component';
 
 @NgModule({
   declarations: [
     CarsComponent,
-    CarFormComponent
+    CarFormComponent,
+    CarsListComponent
   ],
   imports: [
     CommonModule,
