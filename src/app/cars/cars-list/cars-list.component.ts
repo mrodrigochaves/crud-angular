@@ -11,6 +11,9 @@ export class CarsListComponent {
 
   cars: Car[] = [];
 
+readonly displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in', 'actions'];
+
+
   constructor(private router: Router, private route: ActivatedRoute){
 
   }
