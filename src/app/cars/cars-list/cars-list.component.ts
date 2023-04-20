@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Car } from '../model/car';
 import { ActivatedRoute, Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CarsListComponent {
 
-  cars: Car[] = [];
+@Input()  cars: Car[] = [];
 
 readonly displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in', 'actions'];
 
