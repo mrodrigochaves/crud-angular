@@ -4,6 +4,7 @@
       <span>Carros Cadastrados</span>
     </mat-toolbar>
 
+    <div class="mat-elevation-z8">
     <app-cars-list *ngIf="cars$ | async as cars; else loading"
     [cars]="cars"></app-cars-list>
 
@@ -15,6 +16,8 @@
         <mat-spinner></mat-spinner>
       </div>
     </ng-template>
+  </div>
+
   </mat-card-content>
 
 
