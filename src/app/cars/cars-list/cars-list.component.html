@@ -7,22 +7,22 @@
 
         <!-- No. Column -->
         <ng-container matColumnDef="_id">
-          <th mat-header-cell *matHeaderCellDef> ID </th>
-          <td mat-cell *matCellDef="let car"> {{car._id}} </td>
+          <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+          <mat-cell *matCellDef="let car"> {{car._id}} </mat-cell>
         </ng-container>
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> Carro </th>
-          <td mat-cell *matCellDef="let car"> {{car.name}} </td>
+          <mat-header-cell *matHeaderCellDef> Carro </mat-header-cell>
+          <mat-cell *matCellDef="let car"> {{car.name}} </mat-cell>
         </ng-container>
 
         <!-- Category Column -->
         <ng-container matColumnDef="category">
-          <th mat-header-cell *matHeaderCellDef> Marca </th>
-          <td mat-cell *matCellDef="let car"> {{car.category}}
+          <mat-header-cell *matHeaderCellDef> Marca </mat-header-cell>
+          <mat-cell *matCellDef="let car"> {{car.category}}
             <mat-icon aria-hidden="false" aria-label="Car Category" fontIcon="directions_car">{{ car.category | category }}</mat-icon>
-          </td>
+          </mat-cell >
         </ng-container>
 
          <!-- Actions Column -->
@@ -48,23 +48,23 @@
 
         <!-- Color Column -->
         <ng-container matColumnDef="color">
-          <th mat-header-cell *matHeaderCellDef> Cor </th>
-          <td mat-cell *matCellDef="let car"> {{car.color}} </td>
+          <mat-header-cell *matHeaderCellDef> Cor </mat-header-cell>
+          <mat-cell *matCellDef="let car"> {{car.color}} </mat-cell>
         </ng-container>
 
         <!-- Km Out Column -->
         <ng-container matColumnDef="km_out">
           <th mat-header-cell *matHeaderCellDef> KM na Saída </th>
-          <td mat-cell *matCellDef="let car"> {{car.kmOut}} </td>
+          <mat-cell *matCellDef="let car"> {{car.kmOut}} </mat-cell>
         </ng-container>
 
         <!-- Km In Column -->
         <ng-container matColumnDef="km_in">
-          <th mat-header-cell *matHeaderCellDef> KM no Retorno </th>
-          <td mat-cell *matCellDef="let car"> {{car.kmIn}} </td>
+          <mat-header-cell *matHeaderCellDef> KM no Retorno </mat-header-cell>
+          <mat-cell *matCellDef="let car"> {{car.kmIn}} </mat-cell>
         </ng-container>
 
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
