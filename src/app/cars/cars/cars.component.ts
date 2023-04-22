@@ -43,6 +43,7 @@ export class CarsComponent {
     });
   }
 
+  ngOnInit(): void{}
 
   onAdd(){
     this.router.navigate(['new'], {relativeTo: this.route});

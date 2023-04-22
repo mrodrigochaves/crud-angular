@@ -1,6 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Car } from '../model/car';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cars-list',
@@ -10,16 +9,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CarsListComponent {
 
 @Input()  cars: Car[] = [];
+@Output() add = new EventEmitter(false);
 
 readonly displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in', 'actions'];
 
 
-  constructor(private router: Router, private route: ActivatedRoute){
+  constructor(){}
 
-  }
+  ngOnInit(): void{}
 
   onAdd(){
-    this.router.navigate(['new'], {relativeTo: this.route});
+    this.add.emit(true);
   }
 
 }
