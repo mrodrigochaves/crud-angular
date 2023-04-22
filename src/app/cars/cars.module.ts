@@ -13,10 +13,10 @@ import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { SharedModule } from '../shared/shared.module';
-import { CarFormComponent } from './car-form/car-form.component';
+import { CarFormComponent } from './containers/car-form/car-form.component';
 import { CarsRoutingModule } from './cars-routing.module';
-import { CarsComponent } from './cars/cars.component';
-import { CarsListComponent } from './cars-list/cars-list.component';
+import { CarsListComponent } from './components/cars-list/cars-list.component';
+import { CarsComponent } from './containers/cars/cars.component';
 
 @NgModule({
   declarations: [

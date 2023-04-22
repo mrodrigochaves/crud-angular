@@ -1,12 +1,12 @@
-import { catchError } from 'rxjs/operators';
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Observable, of } from 'rxjs';
-
-import { Car } from '../model/car';
-import { CarsService } from './../services/cars.service';
-import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable, of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/error-dialog.component';
+
+import { Car } from '../../model/car';
+import { CarsService } from '../../services/cars.service';
 
 @Component({
   selector: 'app-cars',
