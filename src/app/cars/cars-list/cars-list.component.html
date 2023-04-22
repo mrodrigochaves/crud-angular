@@ -25,6 +25,26 @@
           </mat-cell >
         </ng-container>
 
+          <!-- Color Column -->
+          <ng-container matColumnDef="color">
+            <mat-header-cell *matHeaderCellDef> Cor </mat-header-cell>
+            <mat-cell *matCellDef="let car"> {{car.color}} </mat-cell>
+          </ng-container>
+
+          <!-- Km Out Column -->
+          <ng-container matColumnDef="km_out">
+            <mat-header-cell *matHeaderCellDef> KM na Saída </mat-header-cell>
+            <mat-cell *matCellDef="let car"> {{car.kmOut}}
+            </mat-cell>
+          </ng-container>
+
+          <!-- Km In Column -->
+          <ng-container matColumnDef="km_in">
+            <mat-header-cell *matHeaderCellDef> KM no Retorno </mat-header-cell>
+            <mat-cell *matCellDef="let car"> {{car.kmIn}}
+              </mat-cell>
+          </ng-container>
+
          <!-- Actions Column -->
          <ng-container matColumnDef="actions">
           <mat-header-cell *matHeaderCellDef class="action-column-header">
@@ -33,7 +53,7 @@
             </button>
           </mat-header-cell>
 
-          <mat-cell *matCellDef="let car" class="action-column">
+          <mat-cell *matCellDef="let car" class="action-column" >
             <button mat-icon-button color="primary" aria-label="Edit a car">
               <mat-icon>edit</mat-icon>
             </button>
@@ -44,26 +64,6 @@
           </mat-cell>
 
         </ng-container>
-
-
-        <!-- Color Column -->
-        <ng-container matColumnDef="color">
-          <mat-header-cell *matHeaderCellDef> Cor </mat-header-cell>
-          <mat-cell *matCellDef="let car"> {{car.color}} </mat-cell>
-        </ng-container>
-
-        <!-- Km Out Column -->
-        <ng-container matColumnDef="km_out">
-          <th mat-header-cell *matHeaderCellDef> KM na Saída </th>
-          <mat-cell *matCellDef="let car"> {{car.kmOut}} </mat-cell>
-        </ng-container>
-
-        <!-- Km In Column -->
-        <ng-container matColumnDef="km_in">
-          <mat-header-cell *matHeaderCellDef> KM no Retorno </mat-header-cell>
-          <mat-cell *matCellDef="let car"> {{car.kmIn}} </mat-cell>
-        </ng-container>
-
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
