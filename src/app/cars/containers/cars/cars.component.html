@@ -8,6 +8,7 @@
     <app-cars-list *ngIf="cars$ | async as cars; else loading"
     [cars]="cars"
     (add)="onAdd()"
+    (edit)="onEdit($event)"
     ></app-cars-list>
 
     <div >

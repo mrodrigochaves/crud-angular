@@ -49,4 +49,8 @@ export class CarsComponent {
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
+  onEdit(car: Car){
+    this.router.navigate(['edit',car._id], {relativeTo: this.route});
+  }
+
 }

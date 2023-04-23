@@ -11,6 +11,7 @@ export class CarsListComponent {
 
 @Input()  cars: Car[] = [];
 @Output() add = new EventEmitter(false);
+@Output() edit = new EventEmitter(false);
 
 readonly displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in', 'actions'];
 
@@ -21,6 +22,10 @@ readonly displayedColumns = ['_id','name', 'category', 'color', 'km_out', 'km_in
 
   onAdd(){
     this.add.emit(true);
+  }
+
+  onEdit(car:Car){
+    this.edit.emit(car);
   }
 
 }
