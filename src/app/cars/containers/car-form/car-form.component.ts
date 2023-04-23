@@ -3,6 +3,8 @@ import { FormBuilder, NonNullableFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Location } from '@angular/common';
 import { CarsService } from '../../services/cars.service';
+import { ActivatedRoute } from '@angular/router';
+import { Car } from '../../model/car';
 
 @Component({
   selector: 'app-car-form',
@@ -15,18 +17,27 @@ export class CarFormComponent implements OnInit {
     name: [''],
     category: [''],
     color: [''],
-    kmIn: [''],
-    kmOut: ['']
+    kmOut: [''],
+    kmIn: ['']
   });
 
   constructor( private formBuilder: NonNullableFormBuilder,
     private service: CarsService,
     private snackBar: MatSnackBar,
-    private location: Location) {
+    private location: Location,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-
+    const car: Car = this.route.snapshot.data['car'];
+    this.form.setValue({
+      name: car.name,
+      category: car.category,
+      color: car.color,
+      kmOut: car.km_out,
+      kmIn: car.km_in
+    });
+    console.log(car);
   }
 
   onSubmit(){

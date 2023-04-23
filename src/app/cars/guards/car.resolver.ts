@@ -16,6 +16,6 @@ export class CarResolver implements Resolve<Car> {
     if (route.params && route.params['id']) {
       return this.service.loadById(route.params['id']);
     }
-    return of({_id:'', name:'', category:'', color:'', km_out:'', km_in:'', actions:'' });
+    return of({_id:'', name:'', category:'', color:'', km_out:'', km_in:''});
   }
 }
