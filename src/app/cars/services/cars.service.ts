@@ -20,6 +20,9 @@ export class CarsService {
     );
   }
 
+  loadById(id: string){
+    return this.httpClient.get<Car>(`${this.API}/${id}`);
+  }
 
   save(record: Partial<Car>){
   return  this.httpClient.post<Car>(this.API, record).pipe(first());
